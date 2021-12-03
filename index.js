@@ -17,6 +17,19 @@ const promptTitle = () => {
 	.prompt([
 		{
 			type: 'input',
+			name: 'username',
+			message: 'What is your GitHub username? (Required)',
+			validate: usernameInput => {
+				if (usernameInput) {
+					return true;
+				} else {
+					console.log("Don't be so modest!");
+					return false;
+				}
+			}
+		},
+		{
+			type: 'input',
 			name: 'title',
 			message: 'What is the title of your project? (Required)',
 			validate: titleInput => {
@@ -102,6 +115,70 @@ const promptReqSections = () => {
 	]);
 };
 
+const promptOptSections = () => {
+
+	console.log(`
+	=================
+	Optional Sections
+	=================
+	`);
+
+	return inquirer
+	.prompt([
+		{
+			type: 'list',
+			name: 'license',
+			message: 'Would you like to include a license?',
+			choices: [
+				'MIT', 'GPLv3', 'AGPLv3', 'LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'Unilicense', 'none'
+			],
+			default: 'none'
+		},
+		{
+			type: 'confirm',
+			name: 'confirmEmail',
+			message: 'How about adding your email address to a Questions section?',
+			default: true
+		},
+		{
+			type: 'input',
+			name: 'email',
+			message: 'Your email address:',
+			when: ({ confirmEmail }) => {
+				if (confirmEmail) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		},
+		{
+			type: 'confirm',
+			name: 'confirmTests',
+			message: "Would you like to provide any written tests for your app, including examples on how to run them?",
+			default: false
+		},
+		{
+			type: 'input',
+			name: 'tests',
+			message: 'Insert tests here:',
+			when: ({ confirmTests }) => {
+				if (confirmTests) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		},
+		{
+			type: 'confirm',
+			name: 'confirmTOC',
+			message: 'Lastly, would you like to include a Table of Contents?',
+			default: true
+		}
+	]);
+};
+
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
 /*const writeMdFile = () => {
@@ -126,6 +203,7 @@ function init() {}
 //init();
 promptTitle()
 	.then(promptReqSections)
+	.then(promptOptSections)
 	.catch(err => {
 		console.log(err);
 	});
