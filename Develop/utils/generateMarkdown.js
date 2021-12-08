@@ -5,7 +5,7 @@ const renderToc = tocSection => {
   }
   return `
   ## Table of Contents
-
+  ${tocSection}
   `;
 };
 
@@ -26,7 +26,7 @@ const renderLicenseSection = license => {
   }
   return `
   ## License
-  ${data.license}
+  ${license}
   `;
 };
 
@@ -37,7 +37,7 @@ const renderContrib = contribSection => {
   }
   return `
   ## Contributors
-
+  ${contribSection}
   `;
 };
 
@@ -48,7 +48,7 @@ const renderTests = testSection => {
   }
   return `
   ## Tests
-  
+  ${testSection}
   `;
 };
 
@@ -59,35 +59,32 @@ const renderQuestions = questionSection => {
   }
   return `
   ## Questions
-
+  ${questionSection}
   `;
 };
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `
-    # ${data.title}
+  return `# ${data.title}
 
-    ## Description
-    ${data.description}
+## Description
+${data.description}
 
-    ${renderToc()}
+${renderToc()}
 
-    ## Installation
-    ${data.installation}
+## Installation
+${data.installation}
 
-    ## Usage
-    ${data.usage}
+## Usage
+${data.usage}
 
-    ${renderLicenseSection(license)}
+${renderLicenseSection()}
 
-    ${renderContrib(contributors)}
+${renderContrib()}
 
-    ${renderTests(tests)}
+${renderTests()}
 
-    ${renderQuestions(questions)}
-
-  `;
+${renderQuestions()}`;
 };
 
 module.exports = generateMarkdown;
