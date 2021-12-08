@@ -6,7 +6,7 @@ const generateMarkdown = require('./Develop/utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 // const questions = [];
-const promptTitle = titleSections => {
+const promptSections = projectData => {
 	
 	console.log(`
 	========================
@@ -14,8 +14,8 @@ const promptTitle = titleSections => {
 	========================
 	`);
 
-	if (!titleSections) {
-		titleSections = [];
+	if (!projectData) {
+		projectData = [];
 	}
 
 	return inquirer
@@ -45,27 +45,7 @@ const promptTitle = titleSections => {
 					return false;
 				}
 			}
-		}
-	])
-	.then(readmeData => {
-		titleSections.push(readmeData);
-		return titleSections;
-	});
-};
-
-const promptReqSections = reqSections => {
-
-	console.log(`
-	=================
-	Required Sections
-	=================
-	`)
-	if (!reqSections) {
-		reqSections = [];
-	}
-
-	return inquirer
-	.prompt([
+		},
 		{
 			type: 'input',
 			name: 'description',
@@ -130,28 +110,7 @@ const promptReqSections = reqSections => {
 					return false;
 				}
 			}
-		}
-	])
-	.then(readmeData => {
-		reqSections.push(readmeData);
-		return reqSections;
-	});
-};
-
-const promptOptSections = optSections => {
-
-	console.log(`
-	=================
-	Optional Sections
-	=================
-	`);
-
-	if (!optSections) {
-		optSections = [];
-	}
-	
-	return inquirer
-	.prompt([
+		},
 		{
 			type: 'list',
 			name: 'license',
@@ -205,8 +164,10 @@ const promptOptSections = optSections => {
 		}
 	])
 	.then(readmeData => {
-		optSections.push(readmeData);
-		return optSections;
+		projectData.push(readmeData);
+		console.log(readmeData);
+		console.log(readmeData.title);
+		return projectData;
 	});
 };
 
@@ -232,17 +193,14 @@ function init() {}
 
 // Function call to initialize app
 //init();
-promptTitle()
-	.then(promptReqSections)
-	.then(promptOptSections)
-	.then(readmeData => {
-		console.log(generateMarkdown(readmeData));
-		return generateMarkdown(readmeData);
-		
+promptSections()
+	.then(projectData => {
+		console.log(generateMarkdown(projectData));
+		return generateMarkdown(projectData);
 	})
-	.then(pageMD => {
-		console.log(writeFile(pageMD));
-		return writeFile(pageMD);
+	.then(pageMd => {
+		console.log(writeFile(pageMd));
+		return writeFile(pageMd);
 	})
 	.then(writeMdFileResponse => {
 		console.log(writeMdFileResponse);
@@ -250,6 +208,3 @@ promptTitle()
 	.catch(err => {
 		console.log(err);
 	});
-
-
-

@@ -1,15 +1,15 @@
-# undefined
+# Git You Some!
 
 ## Description
-undefined
+To make sure you git you some!
 
 
 
 ## Installation
-undefined
+Pour a glass of water, wave your hand over the top of the glass, and yell "GIT YOU SOME!"
 
 ## Usage
-undefined
+Impress all the peeps, whitens your teeth, and even makes you two inches taller!
 
 
 

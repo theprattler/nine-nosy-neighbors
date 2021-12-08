@@ -64,7 +64,8 @@ const renderQuestions = questionSection => {
 };
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+/*function generateMarkdown(data) {
+  
   return `# ${data.title}
 
 ## Description
@@ -85,6 +86,30 @@ ${renderContrib()}
 ${renderTests()}
 
 ${renderQuestions()}`;
+};*/
+
+module.exports = generateMarkdown => {
+  console.log(generateMarkdown[0]);
+
+  return `# ${generateMarkdown[0].title}
+
+## Description
+${generateMarkdown[0].description}
+
+${renderToc()}
+
+## Installation
+${generateMarkdown[0].installation}
+
+## Usage
+${generateMarkdown[0].usage}
+
+${renderLicenseSection()}
+
+${renderContrib()}
+
+${renderTests()}
+
+${renderQuestions()}`;
 };
 
-module.exports = generateMarkdown;
