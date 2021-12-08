@@ -2,16 +2,21 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./Develop/utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 // const questions = [];
-const promptTitle = () => {
+const promptTitle = titleSections => {
 	
 	console.log(`
 	========================
 	Let's Make a README File
 	========================
 	`);
+
+	if (!titleSections) {
+		titleSections = [];
+	}
 
 	return inquirer
 	.prompt([
@@ -42,15 +47,22 @@ const promptTitle = () => {
 			}
 		}
 	])
+	.then(readmeData => {
+		titleSections.push(readmeData);
+		return titleSections;
+	});
 };
 
-const promptReqSections = () => {
+const promptReqSections = reqSections => {
 
 	console.log(`
 	=================
 	Required Sections
 	=================
 	`)
+	if (!reqSections) {
+		reqSections = [];
+	}
 
 	return inquirer
 	.prompt([
@@ -97,12 +109,19 @@ const promptReqSections = () => {
 			type: 'confirm',
 			name: 'contributors',
 			message: 'Did anyone else contribute to your project? (Required)',
-			default: false
+			default: true
 		},
 		{
 			type: 'input',
 			name: 'contribNames',
 			message: 'What are their names? (Required)',
+			when: ({ contributors }) => {
+				if (contributors) {
+					return true;
+				} else {
+					return false;
+				}
+			},
 			validate: contribNamesInput => {
 				if (contribNamesInput) {
 					return true;
@@ -112,10 +131,14 @@ const promptReqSections = () => {
 				}
 			}
 		}
-	]);
+	])
+	.then(readmeData => {
+		reqSections.push(readmeData);
+		return reqSections;
+	});
 };
 
-const promptOptSections = () => {
+const promptOptSections = optSections => {
 
 	console.log(`
 	=================
@@ -123,6 +146,10 @@ const promptOptSections = () => {
 	=================
 	`);
 
+	if (!optSections) {
+		optSections = [];
+	}
+	
 	return inquirer
 	.prompt([
 		{
@@ -176,14 +203,18 @@ const promptOptSections = () => {
 			message: 'Lastly, would you like to include a Table of Contents?',
 			default: true
 		}
-	]);
+	])
+	.then(readmeData => {
+		optSections.push(readmeData);
+		return optSections;
+	});
 };
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
-/*const writeMdFile = () => {
+const writeFile = readmeData => {
 	return new Promise((resolve, reject) => {
-		fs.writeMdFile('./dist/README.md', mdFileContent, err => {
+		fs.writeFile('./dist/README.md', readmeData, err => {
 			if (err) {
 				reject(err);
 				return;
@@ -194,7 +225,7 @@ const promptOptSections = () => {
 			});
 		});
 	});
-};*/
+};
 
 // TODO: Create a function to initialize app
 function init() {}
@@ -204,7 +235,21 @@ function init() {}
 promptTitle()
 	.then(promptReqSections)
 	.then(promptOptSections)
+	.then(readmeData => {
+		console.log(generateMarkdown(readmeData));
+		return generateMarkdown(readmeData);
+		
+	})
+	.then(pageMD => {
+		console.log(writeFile(pageMD));
+		return writeFile(pageMD);
+	})
+	.then(writeMdFileResponse => {
+		console.log(writeMdFileResponse);
+	})
 	.catch(err => {
 		console.log(err);
 	});
+
+
 
