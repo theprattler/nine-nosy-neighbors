@@ -1,11 +1,7 @@
-// TODO: Include packages needed for this application
-// TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./Develop/utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
-// const questions = [];
 const promptSections = projectData => {
 	
 	console.log(`
@@ -150,7 +146,7 @@ const promptSections = projectData => {
 		{
 			type: 'confirm',
 			name: 'confirmTests',
-			message: "Would you like to provide any written tests for your app, including examples on how to run them?",
+			message: "Lastly, would you like to provide any written tests for your app, including examples on how to run them?",
 			default: false
 		},
 		{
@@ -164,12 +160,6 @@ const promptSections = projectData => {
 					return false;
 				}
 			}
-		},
-		{
-			type: 'confirm',
-			name: 'confirmTOC',
-			message: 'Lastly, would you like to include a Table of Contents?',
-			default: true
 		}
 	])
 	.then(readmeData => {
@@ -178,8 +168,6 @@ const promptSections = projectData => {
 	});
 };
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
 const writeFile = readmeData => {
 	return new Promise((resolve, reject) => {
 		fs.writeFile('./dist/README.md', readmeData, err => {
@@ -195,11 +183,6 @@ const writeFile = readmeData => {
 	});
 };
 
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-//init();
 promptSections()
 	.then(projectData => {
 		console.log(generateMarkdown(projectData));
