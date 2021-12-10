@@ -83,26 +83,18 @@ const promptSections = projectData => {
 		},
 		{
 			type: 'confirm',
-			name: 'contributors',
-			message: 'Did anyone else contribute to your project? (Required)',
+			name: 'confirmContrib',
+			message: 'Would you like to add a Contributing section?',
 			default: true
 		},
 		{
 			type: 'input',
-			name: 'contribNames',
-			message: 'What are their names? (Required)',
-			when: ({ contributors }) => {
-				if (contributors) {
+			name: 'contribGuidelines',
+			message: 'What guidelines do you want to add for developers who are interested in contributing to your project?',
+			when: ({ confirmContrib }) => {
+				if (confirmContrib) {
 					return true;
 				} else {
-					return false;
-				}
-			},
-			validate: contribNamesInput => {
-				if (contribNamesInput) {
-					return true;
-				} else {
-					console.log('You need to give credit to whom it is due!');
 					return false;
 				}
 			}
@@ -129,7 +121,6 @@ const promptSections = projectData => {
 				}
 			}
 		},
-		
 		{
 			type: 'input',
 			name: 'email',
@@ -177,7 +168,7 @@ const writeFile = readmeData => {
 			}
 			resolve({
 				ok: true,
-				message: 'README created!'
+				message: 'README created at "./dist/README.md"!'
 			});
 		});
 	});

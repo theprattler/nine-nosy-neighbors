@@ -36,12 +36,12 @@ const renderLicenseSection = licenseSection => {
 ${licenseSection}`;
 };
 
-// add 'contributors' to TOC if needed
+// add 'contributing' to TOC if needed
 const renderContribTOC = contribTOC => {
   if (!contribTOC) {
     return '';
   }
-  return `* [Contributors](#contributors)`
+  return `* [Contributing](#contributing)`
 }
 
 // create "contributors" section if needed
@@ -49,7 +49,7 @@ const renderContrib = contribSection => {
   if (!contribSection) {
     return '';
   }
-  return `## Contributors
+  return `## Contributing
 ${contribSection}`;
 };
 
@@ -81,7 +81,7 @@ module.exports = generateMarkdown => {
 * [Installation](#installation)
 * [Usage](#usage)
 ${renderLicenseTOC(generateMarkdown[0].confirmLicense)}
-${renderContribTOC(generateMarkdown[0].contributors)}
+${renderContribTOC(generateMarkdown[0].confirmContrib)}
 ${renderTestsTOC(generateMarkdown[0].confirmTests)}
 * [Questions](#questions)
 
@@ -97,7 +97,7 @@ ${generateMarkdown[0].usage}
 
 ${renderLicenseSection(generateMarkdown[0].license)}
 
-${renderContrib(generateMarkdown[0].contribNames)}
+${renderContrib(generateMarkdown[0].contribGuidelines)}
 
 ${renderTests(generateMarkdown[0].tests)}
 
