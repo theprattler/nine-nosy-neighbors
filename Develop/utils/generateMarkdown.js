@@ -1,11 +1,11 @@
 // create 'table of contents' if needed
-const renderToc = tocSection => {
-  if (!tocSection) {
+const renderTOC = TOC => {
+  if (!TOC) {
     return '';
   }
   return `
   ## Table of Contents
-  ${tocSection}
+  ${TOC}
   `;
 };
 
@@ -20,14 +20,12 @@ function renderLicenseLink(license) {}
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 //function renderLicenseSection(license) {}
-const renderLicenseSection = license => {
-  if (!license) {
+const renderLicenseSection = licenseSection => {
+  if (licenseSection === 'none') {
     return '';
   }
-  return `
-  ## License
-  ${license}
-  `;
+  return `## License
+${licenseSection}`;
 };
 
 // create "contributors" section if needed
@@ -35,10 +33,8 @@ const renderContrib = contribSection => {
   if (!contribSection) {
     return '';
   }
-  return `
-  ## Contributors
-  ${contribSection}
-  `;
+  return `## Contributors
+${contribSection}`;
 };
 
 // create "tests" section if needed
@@ -59,44 +55,23 @@ const renderQuestions = questionSection => {
   }
   return `
   ## Questions
-  ${questionSection}
+  If you have any questions, feel free to contact me:
+  ${generateMarkdown[0].username}
+  ${generateMarkdown[0].email}
   `;
 };
 
-// TODO: Create a function to generate markdown for README
-/*function generateMarkdown(data) {
-  
-  return `# ${data.title}
-
-## Description
-${data.description}
-
-${renderToc()}
-
-## Installation
-${data.installation}
-
-## Usage
-${data.usage}
-
-${renderLicenseSection()}
-
-${renderContrib()}
-
-${renderTests()}
-
-${renderQuestions()}`;
-};*/
-
 module.exports = generateMarkdown => {
   console.log(generateMarkdown[0]);
+
+  //const { license, contributors, tests, questions } = generateMarkdown;
 
   return `# ${generateMarkdown[0].title}
 
 ## Description
 ${generateMarkdown[0].description}
 
-${renderToc()}
+${renderTOC()}
 
 ## Installation
 ${generateMarkdown[0].installation}
@@ -104,11 +79,11 @@ ${generateMarkdown[0].installation}
 ## Usage
 ${generateMarkdown[0].usage}
 
-${renderLicenseSection()}
+${renderLicenseSection(generateMarkdown[0].license)}
 
-${renderContrib()}
+${renderContrib(generateMarkdown[0].contribNames)}
 
-${renderTests()}
+${renderTests(generateMarkdown[0].tests)}
 
 ${renderQuestions()}`;
 };

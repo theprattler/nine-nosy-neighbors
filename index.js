@@ -165,8 +165,6 @@ const promptSections = projectData => {
 	])
 	.then(readmeData => {
 		projectData.push(readmeData);
-		console.log(readmeData);
-		console.log(readmeData.title);
 		return projectData;
 	});
 };

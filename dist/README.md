@@ -1,19 +1,21 @@
-# Git You Some!
+# Git You Some
 
 ## Description
-To make sure you git you some!
+djajldajkd
 
 
 
 ## Installation
-Pour a glass of water, wave your hand over the top of the glass, and yell "GIT YOU SOME!"
+jjakjdksla
 
 ## Usage
-Impress all the peeps, whitens your teeth, and even makes you two inches taller!
+kdjaljdsa
 
+## License
+MIT
 
-
-
+## Contributors
+George, Amy
 
 
 
