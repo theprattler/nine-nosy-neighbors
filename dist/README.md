@@ -1,21 +1,20 @@
-# Git You Some
+# jdalds [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 ## Description
-djajldajkd
-
-
+djfaklds
 
 ## Installation
-jjakjdksla
+djfaklds
 
 ## Usage
-kdjaljdsa
+jkdal
 
 ## License
 MIT
 
-## Contributors
-George, Amy
+
 
 
 

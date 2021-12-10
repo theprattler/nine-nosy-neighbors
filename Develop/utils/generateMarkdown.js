@@ -11,7 +11,14 @@ const renderTOC = TOC => {
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const renderLicenseBadge = licenseBadge => {
+  if (licenseBadge === 'none') {
+    return '';
+  }
+  if (licenseBadge === 'MIT') {
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+  }
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -42,10 +49,8 @@ const renderTests = testSection => {
   if (!testSection) {
     return '';
   }
-  return `
-  ## Tests
-  ${testSection}
-  `;
+  return `## Tests
+${testSection}`;
 };
 
 // create "questions" section if needed
@@ -53,25 +58,22 @@ const renderQuestions = questionSection => {
   if (!questionSection) {
     return '';
   }
-  return `
-  ## Questions
-  If you have any questions, feel free to contact me:
-  ${generateMarkdown[0].username}
-  ${generateMarkdown[0].email}
-  `;
+  return `## Questions
+If you have any questions, feel free to contact me:
+${questionSection}`;
 };
 
 module.exports = generateMarkdown => {
   console.log(generateMarkdown[0]);
 
-  //const { license, contributors, tests, questions } = generateMarkdown;
+  
 
-  return `# ${generateMarkdown[0].title}
+  return `# ${generateMarkdown[0].title} ${renderLicenseBadge(generateMarkdown[0].license)}
+
+${renderTOC()}
 
 ## Description
 ${generateMarkdown[0].description}
-
-${renderTOC()}
 
 ## Installation
 ${generateMarkdown[0].installation}
@@ -85,6 +87,6 @@ ${renderContrib(generateMarkdown[0].contribNames)}
 
 ${renderTests(generateMarkdown[0].tests)}
 
-${renderQuestions()}`;
+${renderQuestions(generateMarkdown[0].email)}`;
 };
 

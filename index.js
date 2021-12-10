@@ -112,14 +112,40 @@ const promptSections = projectData => {
 			}
 		},
 		{
+			type: 'confirm',
+			name: 'confirmLicense',
+			message: 'Would you like to include a license?',
+			default: false
+		},
+		{
 			type: 'list',
 			name: 'license',
-			message: 'Would you like to include a license?',
+			message: 'Which license would you like?',
 			choices: [
 				'MIT', 'GPLv3', 'AGPLv3', 'LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'Unilicense', 'none'
 			],
-			default: 'none'
+			default: 'MIT',
+			when: ({ confirmLicense }) => {
+				if (confirmLicense) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 		},
+		/*{
+			type: 'confirm',
+			name: 'confirmBadge',
+			message: 'Is it okay if the badge for the license is added to your README?',
+			default: true,
+			when: ({ license }) => {
+				if (license) {
+					return license;
+				} else {
+					return false;
+				}
+			}
+		},*/
 		{
 			type: 'confirm',
 			name: 'confirmEmail',
