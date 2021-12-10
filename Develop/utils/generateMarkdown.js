@@ -3,14 +3,17 @@ const renderTOC = TOC => {
   if (!TOC) {
     return '';
   }
-  return `
-  ## Table of Contents
-  ${TOC}
-  `;
+  return `## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributors](#contributors)
+* [Tests](#tests)
+* [Questions](#questions)`;
 };
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// create 'license badge' if needed
 const renderLicenseBadge = licenseBadge => {
   if (licenseBadge === 'none') {
     return '';
@@ -31,13 +34,7 @@ const renderLicenseBadge = licenseBadge => {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-//function renderLicenseSection(license) {}
+// create 'license section' if needed
 const renderLicenseSection = licenseSection => {
   if (licenseSection === 'none') {
     return '';
@@ -64,24 +61,12 @@ const renderTests = testSection => {
 ${testSection}`;
 };
 
-// create "questions" section if needed
-const renderQuestions = questionSection => {
-  if (!questionSection) {
-    return '';
-  }
-  return `## Questions
-If you have any questions, feel free to contact me:
-${questionSection}`;
-};
-
 module.exports = generateMarkdown => {
   console.log(generateMarkdown[0]);
 
-  
-
   return `# ${generateMarkdown[0].title} ${renderLicenseBadge(generateMarkdown[0].license)}
 
-${renderTOC()}
+${renderTOC(generateMarkdown[0].confirmTOC)}
 
 ## Description
 ${generateMarkdown[0].description}
@@ -100,7 +85,7 @@ ${renderTests(generateMarkdown[0].tests)}
 
 ## Questions
 If you have any questions, feel free to contact me:
-* GitHub Profile: [${generateMarkdown[0].username}](https://github.com/${generateMarkdown[0].username});
+* GitHub Profile: [${generateMarkdown[0].username}](https://github.com/${generateMarkdown[0].username})
 * Email: ${generateMarkdown[0].email}`;
 };
 
