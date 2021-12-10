@@ -72,8 +72,7 @@ ${testSection}`;
 
 // generate the markdown file
 module.exports = generateMarkdown => {
-  console.log(generateMarkdown[0]);
-
+  
   return `# ${generateMarkdown[0].title} ${renderLicenseBadge(generateMarkdown[0].license)}
 
 ## Table of Contents

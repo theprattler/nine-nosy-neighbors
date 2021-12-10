@@ -1,4 +1,4 @@
-# jdajdkslajsdakajakdjla [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# kajkdajlk [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 ## Table of Contents
 * [Description](#description)
@@ -11,24 +11,24 @@
 
 
 ## Description
-djkajkdjakljkal
+jdakdjalk
 
 ## Installation
-jkajkdjkjajkalds
+jakljdkal
 
 ## Usage
-jdakjkdjkal
+djakljdklajds
 
 ## License
-MIT
+AGPLv3
 
 ## Contributing
-jdkajkdjkajdjfkajkajdjfkajkdjakdjkfajdkla
+djakljdklajldsa
 
 ## Tests
-dkajklj djka dsaj asdsjdjfiea vdajlj njjkljksdlj dslkj aljds jd jd djfdsjklhkfjdk ds sajkdjka 
+dahjhjkd dhajdhkjahdfh a
 
 ## Questions
 If you have any questions, feel free to contact me:
-* GitHub Profile: [theprattler](https://github.com/theprattler)
-* Email: jdksl@jkdsjskjdl.com
+* GitHub Profile: [jfakljsd](https://github.com/jfakljsd)
+* Email: djkajdkls@jkajdk.com

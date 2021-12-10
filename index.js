@@ -176,11 +176,9 @@ const writeFile = readmeData => {
 
 promptSections()
 	.then(projectData => {
-		console.log(generateMarkdown(projectData));
 		return generateMarkdown(projectData);
 	})
 	.then(pageMd => {
-		console.log(writeFile(pageMd));
 		return writeFile(pageMd);
 	})
 	.then(writeMdFileResponse => {
