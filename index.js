@@ -122,7 +122,7 @@ const promptSections = projectData => {
 			name: 'license',
 			message: 'Which license would you like?',
 			choices: [
-				'MIT', 'GPLv3', 'AGPLv3', 'LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'Unilicense', 'none'
+				'MIT', 'GPLv3', 'AGPLv3', 'LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'Boost Software License 1.0', 'none'
 			],
 			default: 'MIT',
 			when: ({ confirmLicense }) => {
@@ -133,33 +133,16 @@ const promptSections = projectData => {
 				}
 			}
 		},
-		/*{
-			type: 'confirm',
-			name: 'confirmBadge',
-			message: 'Is it okay if the badge for the license is added to your README?',
-			default: true,
-			when: ({ license }) => {
-				if (license) {
-					return license;
-				} else {
-					return false;
-				}
-			}
-		},*/
-		{
-			type: 'confirm',
-			name: 'confirmEmail',
-			message: 'How about adding your email address to a Questions section?',
-			default: true
-		},
+		
 		{
 			type: 'input',
 			name: 'email',
-			message: 'Your email address:',
-			when: ({ confirmEmail }) => {
-				if (confirmEmail) {
+			message: 'Now enter your email address: (Required)',
+			validate: (emailInput) => {
+				if (emailInput) {
 					return true;
 				} else {
+					console.log("Contact information is important!");
 					return false;
 				}
 			}

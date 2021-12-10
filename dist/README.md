@@ -1,15 +1,15 @@
-# jdalds [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# djkal [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 
 ## Description
-djfaklds
+djakldks
 
 ## Installation
-djfaklds
+jdfkaljds
 
 ## Usage
-jkdal
+jdaklljsdl
 
 ## License
 MIT
@@ -18,3 +18,7 @@ MIT
 
 
 
+## Questions
+If you have any questions, feel free to contact me:
+* GitHub Profile: [theprattler](https://github.com/theprattler);
+* Email: jdksl@djjal.com

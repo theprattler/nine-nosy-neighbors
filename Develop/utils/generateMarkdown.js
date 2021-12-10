@@ -14,9 +14,20 @@ const renderTOC = TOC => {
 const renderLicenseBadge = licenseBadge => {
   if (licenseBadge === 'none') {
     return '';
-  }
-  if (licenseBadge === 'MIT') {
+  } else if (licenseBadge === 'MIT') {
     return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+  } else if (licenseBadge === 'GPLv3') {
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+  } else if (licenseBadge === 'AGPLv3') {
+    return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`;
+  } else if (licenseBadge === 'LGPLv3') {
+    return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`;
+  } else if (licenseBadge === 'Mozilla Public License 2.0') {
+    return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
+  } else if (licenseBadge === 'Apache License 2.0') {
+    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+  } else {
+    return `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`;
   }
 }
 
@@ -87,6 +98,9 @@ ${renderContrib(generateMarkdown[0].contribNames)}
 
 ${renderTests(generateMarkdown[0].tests)}
 
-${renderQuestions(generateMarkdown[0].email)}`;
+## Questions
+If you have any questions, feel free to contact me:
+* GitHub Profile: [${generateMarkdown[0].username}](https://github.com/${generateMarkdown[0].username});
+* Email: ${generateMarkdown[0].email}`;
 };
 
