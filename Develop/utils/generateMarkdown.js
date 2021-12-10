@@ -1,18 +1,3 @@
-// create 'table of contents' if needed
-const renderTOC = TOC => {
-  if (!TOC) {
-    return '';
-  }
-  return `## Table of Contents
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributors](#contributors)
-* [Tests](#tests)
-* [Questions](#questions)`;
-};
-
 // create 'license badge' if needed
 const renderLicenseBadge = licenseBadge => {
   if (licenseBadge === 'none') {
@@ -34,6 +19,14 @@ const renderLicenseBadge = licenseBadge => {
   }
 }
 
+// add 'license' to TOC if needed
+const renderLicenseTOC = licenseTOC => {
+  if (!licenseTOC) {
+    return '';
+  }
+  return `* [License](#license)`
+}
+
 // create 'license section' if needed
 const renderLicenseSection = licenseSection => {
   if (licenseSection === 'none') {
@@ -42,6 +35,14 @@ const renderLicenseSection = licenseSection => {
   return `## License
 ${licenseSection}`;
 };
+
+// add 'contributors' to TOC if needed
+const renderContribTOC = contribTOC => {
+  if (!contribTOC) {
+    return '';
+  }
+  return `* [Contributors](#contributors)`
+}
 
 // create "contributors" section if needed
 const renderContrib = contribSection => {
@@ -52,6 +53,14 @@ const renderContrib = contribSection => {
 ${contribSection}`;
 };
 
+// add 'tests' to TOC if needed
+const renderTestsTOC = testsTOC => {
+  if (!testsTOC) {
+    return '';
+  }
+  return `* [Tests](#tests)`
+}
+
 // create "tests" section if needed
 const renderTests = testSection => {
   if (!testSection) {
@@ -61,12 +70,21 @@ const renderTests = testSection => {
 ${testSection}`;
 };
 
+// generate the markdown file
 module.exports = generateMarkdown => {
   console.log(generateMarkdown[0]);
 
   return `# ${generateMarkdown[0].title} ${renderLicenseBadge(generateMarkdown[0].license)}
 
-${renderTOC(generateMarkdown[0].confirmTOC)}
+## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+${renderLicenseTOC(generateMarkdown[0].confirmLicense)}
+${renderContribTOC(generateMarkdown[0].contributors)}
+${renderTestsTOC(generateMarkdown[0].confirmTests)}
+* [Questions](#questions)
+
 
 ## Description
 ${generateMarkdown[0].description}
