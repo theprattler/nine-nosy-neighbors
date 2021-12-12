@@ -1,4 +1,4 @@
-# kajkdajlk [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+# Git You Some Pizazz! [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 ## Table of Contents
 * [Description](#description)
@@ -11,24 +11,24 @@
 
 
 ## Description
-jdakdjalk
+lorem ipsum
 
 ## Installation
-jakljdkal
+lorem ipsum some more
 
 ## Usage
-djakljdklajds
+lorem ispum even more
 
 ## License
-AGPLv3
+LGPLv3
 
 ## Contributing
-djakljdklajldsa
+lorem ipsum with my kind permission
 
 ## Tests
-dahjhjkd dhajdhkjahdfh a
+lorem ipsum and you'll see how great it is!
 
 ## Questions
 If you have any questions, feel free to contact me:
-* GitHub Profile: [jfakljsd](https://github.com/jfakljsd)
-* Email: djkajdkls@jkajdk.com
+* GitHub Profile: [theprattler](https://github.com/theprattler)
+* Email: theprattler@theprattler.com
